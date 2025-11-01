@@ -1,19 +1,23 @@
 // PATH: src/main/java/com/verto/shop/model/Product.java
 package com.verto.shop.model;
 
-// === NEW: Import JPA annotations ===
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+// === NEW: Import Serializable ===
+import java.io.Serializable;
 
-// === NEW: Mark as a database entity ===
 @Entity
-@Table(name = "products") // Specify the table name
-public class Product {
+@Table(name = "products")
+// === NEW: Implement Serializable ===
+public class Product implements Serializable {
 
-    // === NEW: Mark this as the Primary Key ===
+    // === NEW: Add a serial version UID (good practice for serialization) ===
+    private static final long serialVersionUID = 1L;
+
     @Id
     private String id;
+
 
     private String name;
     private String description;

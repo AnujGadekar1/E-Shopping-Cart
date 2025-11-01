@@ -3,15 +3,21 @@ package com.verto.shop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+// === NEW: Import Caching ===
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.context.annotation.Bean;
 
+// === NEW: Enable Caching ===
+@EnableCaching
 @SpringBootApplication
 public class VertoShopApplication {
     public static void main(String[] args) {
         SpringApplication.run(VertoShopApplication.class, args);
     }
+
+
 
     //   CORS Configuration Bean
     // This allows the React frontend (running on a different port, e.g., 3000/5173) 
