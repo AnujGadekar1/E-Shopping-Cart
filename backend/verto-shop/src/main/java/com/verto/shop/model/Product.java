@@ -1,9 +1,20 @@
 // PATH: src/main/java/com/verto/shop/model/Product.java
 package com.verto.shop.model;
 
-// Model for a single product item (used for hardcoded catalog)
+// === NEW: Import JPA annotations ===
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+// === NEW: Mark as a database entity ===
+@Entity
+@Table(name = "products") // Specify the table name
 public class Product {
+
+    // === NEW: Mark this as the Primary Key ===
+    @Id
     private String id;
+
     private String name;
     private String description;
     private long priceCents;
@@ -16,6 +27,7 @@ public class Product {
         this.id = id; this.name = name; this.description = description; this.priceCents = priceCents; this.imageUrl = imageUrl; this.currency = currency;
     }
 
+    // ... (All getters and setters remain the same) ...
     public String getId() { return id; }
     public void setId(String id) { this.id = id; }
     public String getName() { return name; }
